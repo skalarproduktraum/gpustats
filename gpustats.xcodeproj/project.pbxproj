@@ -375,6 +375,7 @@
 				INFOPLIST_FILE = gpustats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = /usr/local/cuda/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
 					"-F/Library/Frameworks",
 					"-framework",
@@ -404,6 +405,7 @@
 				INFOPLIST_FILE = gpustats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = /usr/local/cuda/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
 					"-F/Library/Frameworks",
 					"-framework",
@@ -471,6 +473,7 @@
 				95D5D72F1ADFD37D0056990E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95D5D7301ADFD37D0056990E /* Build configuration list for PBXNativeTarget "gpustatsTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +482,7 @@
 				95D5D7321ADFD37D0056990E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
