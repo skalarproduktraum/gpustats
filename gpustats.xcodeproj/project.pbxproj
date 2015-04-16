@@ -10,8 +10,10 @@
 		95D5D7171ADFD37D0056990E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D7161ADFD37D0056990E /* AppDelegate.m */; };
 		95D5D7191ADFD37D0056990E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D7181ADFD37D0056990E /* main.m */; };
 		95D5D71B1ADFD37D0056990E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D5D71A1ADFD37D0056990E /* Images.xcassets */; };
-		95D5D71E1ADFD37D0056990E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D5D71C1ADFD37D0056990E /* MainMenu.xib */; };
 		95D5D72A1ADFD37D0056990E /* gpustatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D7291ADFD37D0056990E /* gpustatsTests.m */; };
+		95D5D73C1ADFDED60056990E /* CUDAhelper.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D5D73B1ADFDED60056990E /* CUDAhelper.o */; };
+		95D5D73D1ADFDF6C0056990E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D5D71C1ADFD37D0056990E /* MainMenu.xib */; };
+		95D5D73F1ADFE14B0056990E /* CUDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D5D73E1ADFE14B0056990E /* CUDA.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,10 @@
 		95D5D7231ADFD37D0056990E /* gpustatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gpustatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D5D7281ADFD37D0056990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95D5D7291ADFD37D0056990E /* gpustatsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gpustatsTests.m; sourceTree = "<group>"; };
+		95D5D7351ADFDA7D0056990E /* CUDAhelper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CUDAhelper.c; sourceTree = "<group>"; };
+		95D5D7361ADFDA7D0056990E /* CUDAhelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUDAhelper.h; sourceTree = "<group>"; };
+		95D5D73B1ADFDED60056990E /* CUDAhelper.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = CUDAhelper.o; sourceTree = "<group>"; };
+		95D5D73E1ADFE14B0056990E /* CUDA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CUDA.framework; path = ../../../../Library/Frameworks/CUDA.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D5D73F1ADFE14B0056990E /* CUDA.framework in Frameworks */,
+				95D5D73C1ADFDED60056990E /* CUDAhelper.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +66,7 @@
 		95D5D7071ADFD37D0056990E = {
 			isa = PBXGroup;
 			children = (
+				95D5D73E1ADFE14B0056990E /* CUDA.framework */,
 				95D5D7121ADFD37D0056990E /* gpustats */,
 				95D5D7261ADFD37D0056990E /* gpustatsTests */,
 				95D5D7111ADFD37D0056990E /* Products */,
@@ -76,11 +85,14 @@
 		95D5D7121ADFD37D0056990E /* gpustats */ = {
 			isa = PBXGroup;
 			children = (
+				95D5D73A1ADFDED60056990E /* tmp */,
 				95D5D7151ADFD37D0056990E /* AppDelegate.h */,
 				95D5D7161ADFD37D0056990E /* AppDelegate.m */,
 				95D5D71A1ADFD37D0056990E /* Images.xcassets */,
 				95D5D71C1ADFD37D0056990E /* MainMenu.xib */,
 				95D5D7131ADFD37D0056990E /* Supporting Files */,
+				95D5D7351ADFDA7D0056990E /* CUDAhelper.c */,
+				95D5D7361ADFDA7D0056990E /* CUDAhelper.h */,
 			);
 			path = gpustats;
 			sourceTree = "<group>";
@@ -111,6 +123,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		95D5D73A1ADFDED60056990E /* tmp */ = {
+			isa = PBXGroup;
+			children = (
+				95D5D73B1ADFDED60056990E /* CUDAhelper.o */,
+			);
+			path = tmp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,6 +138,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95D5D72D1ADFD37D0056990E /* Build configuration list for PBXNativeTarget "gpustats" */;
 			buildPhases = (
+				95D5D7391ADFDDB60056990E /* ShellScript */,
 				95D5D70C1ADFD37D0056990E /* Sources */,
 				95D5D70D1ADFD37D0056990E /* Frameworks */,
 				95D5D70E1ADFD37D0056990E /* Resources */,
@@ -192,7 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95D5D71B1ADFD37D0056990E /* Images.xcassets in Resources */,
-				95D5D71E1ADFD37D0056990E /* MainMenu.xib in Resources */,
+				95D5D73D1ADFDF6C0056990E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +225,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95D5D7391ADFDDB60056990E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Developer/NVIDIA/CUDA-6.5/bin/nvcc -ccbin clang -m64   -Xcompiler -arch -Xcompiler x86_64  -gencode arch=compute_11,code=sm_11 -gencode arch=compute_20,code=sm_20 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_50,code=compute_50 -o ${PROJECT_DIR}/gpustats/tmp/CUDAhelper.o -c ${PROJECT_DIR}/gpustats/CUDAhelper.c";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		95D5D70C1ADFD37D0056990E /* Sources */ = {
@@ -326,8 +363,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/cuda/include,
+				);
 				INFOPLIST_FILE = gpustats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/cuda/lib;
+				OTHER_LDFLAGS = (
+					"-F/Library/Frameworks",
+					"-framework",
+					CUDA,
+					"-rpath",
+					/usr/local/cuda/lib,
+					"-lcudart",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -337,8 +392,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/cuda/include,
+				);
 				INFOPLIST_FILE = gpustats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/cuda/lib;
+				OTHER_LDFLAGS = (
+					"-F/Library/Frameworks",
+					"-framework",
+					CUDA,
+					"-rpath",
+					/usr/local/cuda/lib,
+					"-lcudart",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
